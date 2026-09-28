@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Sunar Law Office Case Management Center">
+<title>Sunar Law Office — Case Management Center</title>
+<style>
+:root{--n:#10233f;--n2:#17365f;--g:#c9a227;--bg:#f4f6f9;--w:#fff;--t:#243247;--m:#6b7788;--l:#dfe5ec;--b:#2563eb;--ok:#198754;--danger:#b42318;--shadow:0 7px 22px rgba(16,35,63,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:14px Arial,Helvetica,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.top{height:68px;background:linear-gradient(110deg,var(--n),var(--n2));color:#fff;display:flex;align-items:center;padding:0 20px;gap:12px;position:sticky;top:0;z-index:30}.brand{display:flex;gap:11px;align-items:center;font-weight:800}.mark{width:42px;height:42px;border:2px solid var(--g);border-radius:8px;display:grid;place-items:center;color:var(--g);font-weight:900}.brand small{display:block;font-size:10px;opacity:.7;margin-top:3px}.menu{margin-left:auto;background:transparent;color:#fff;border:1px solid #ffffff40;border-radius:7px;padding:8px 12px}
+.layout{display:flex;min-height:calc(100vh - 68px)}.side{width:250px;background:#fff;border-right:1px solid var(--l);padding:16px 11px;position:sticky;top:68px;height:calc(100vh - 68px);overflow:auto}.navtitle{font-size:10px;color:#9aa3b0;font-weight:800;padding:12px 10px 6px;text-transform:uppercase}.nav button{display:block;width:100%;text-align:left;background:transparent;border:0;border-radius:8px;padding:11px 12px;color:#445166;margin:2px 0}.nav button:hover,.nav button.active{background:#edf2f8;color:var(--n);font-weight:700}
+.main{width:100%;max-width:1500px;margin:auto;padding:24px}.page{display:none}.page.active{display:block}.head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:18px}.head h1{margin:0 0 5px;color:var(--n);font-size:25px}.head p{margin:0;color:var(--m);font-size:13px}.actions{display:flex;gap:7px;flex-wrap:wrap}.btn{border:0;border-radius:7px;padding:9px 13px;font-weight:700}.primary{background:var(--n);color:#fff}.gold{background:var(--g);color:#172235}.light{background:#fff;border:1px solid var(--l);color:var(--t)}.danger{background:#fff;border:1px solid #f1c2bd;color:var(--danger)}
+.card{background:#fff;border:1px solid var(--l);border-radius:10px;padding:17px;box-shadow:var(--shadow)}.grid{display:grid;gap:14px}.stats{grid-template-columns:repeat(6,1fr);margin-bottom:15px}.statlabel{font-size:11px;color:var(--m)}.statnum{font-size:28px;color:var(--n);font-weight:800;margin-top:5px}.two{grid-template-columns:1.4fr .6fr}.three{grid-template-columns:repeat(3,1fr)}
+.tablewrap{overflow:auto}.data{width:100%;border-collapse:collapse}.data th,.data td{padding:11px;border-bottom:1px solid var(--l);text-align:left;font-size:12px;vertical-align:top}.data th{background:#f7f9fb;color:#526174;font-size:10px;text-transform:uppercase;white-space:nowrap}.data tr:hover td{background:#fbfcfe}
+.badge{display:inline-block;border-radius:20px;padding:4px 8px;font-size:10px;font-weight:800;background:#edf2f7;color:#526174}.blue{background:#e8efff;color:#2457b8}.green{background:#e6f5ed;color:#16764a}.red{background:#fdecea;color:#a93226}.yellow{background:#fff6d9;color:#846600}
+.search{display:flex;gap:8px;margin-bottom:12px}.search input{flex:1;border:1px solid var(--l);border-radius:7px;padding:10px}
+.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.field label{display:block;font-size:11px;font-weight:800;color:#526174;margin-bottom:5px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--l);border-radius:7px;padding:10px;background:#fff;outline:0}.field textarea{min-height:90px;resize:vertical}.full{grid-column:1/-1}.hint{font-size:11px;color:var(--m);line-height:1.5}.notice{background:#fff8df;border:1px solid #f0dd92;padding:12px;border-radius:8px;font-size:12px;margin-bottom:14px}
+.modal{display:none;position:fixed;inset:0;background:#08172a99;z-index:100;padding:18px;overflow:auto}.modal.open{display:block}.modalbox{max-width:850px;margin:4vh auto;background:#fff;border-radius:12px;padding:21px}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.modalhead h2{margin:0;color:var(--n);font-size:20px}.close{border:0;border-radius:50%;width:32px;height:32px;background:#edf1f5;font-size:20px}
+.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.sectionhead h3{margin:0;color:var(--n)}
+.detailtabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}.dtab{border:1px solid var(--l);background:#fff;color:#536174;padding:9px 12px;border-radius:7px;font-weight:700;font-size:11px}.dtab.active{background:var(--n);color:#fff;border-color:var(--n)}.dcontent{display:none}.dcontent.active{display:block}
+.detailgrid{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--l)}.detailgrid>div{padding:13px;border-bottom:1px solid var(--l)}.detailgrid span{display:block;color:#8490a0;text-transform:uppercase;font-size:9px;font-weight:800;margin-bottom:5px}.detailgrid b{font-size:12px}.parties{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.party{border:1px solid var(--l);border-radius:8px;padding:13px}.party span{display:block;font-size:9px;color:#8490a0;text-transform:uppercase;font-weight:800}.party b{display:block;margin:6px 0}.party small{display:block;color:var(--m);margin-bottom:8px}.timeline{border-left:2px solid #dce3eb;margin-left:7px;padding-left:18px}.event{position:relative;margin-bottom:18px}.event:before{content:"";position:absolute;left:-24px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--g)}.event strong{display:block;font-size:12px}.event span,.event p{font-size:11px;color:var(--m)}.event p{margin:5px 0}
+.filebox{border:1px dashed #b8c3d0;border-radius:8px;padding:12px;background:#fafbfd}.filemeta{margin-top:7px;font-size:11px;color:#536174}.attach{display:inline-block;margin-top:4px;font-size:10px;color:#536174}
+.footer{text-align:center;color:#8b95a3;font-size:10px;padding:25px}
+@media(max-width:1050px){.stats{grid-template-columns:repeat(3,1fr)}.two{grid-template-columns:1fr}.parties{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.side{position:fixed;left:-270px;z-index:50;transition:.2s}.side.open{left:0}.main{padding:15px}.stats{grid-template-columns:repeat(2,1fr)}.formgrid,.detailgrid,.parties{grid-template-columns:1fr}.head{flex-direction:column}.top{padding:0 12px}}
+@media print{.top,.side,.actions,.detailtabs,.footer{display:none!important}.main{padding:0}.card{box-shadow:none;border:0}.page{display:none!important}.page.active{display:block!important}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="brand"><div class="mark">SL</div><div>SUNAR LAW OFFICE<small>CASE MANAGEMENT CENTER</small></div></div>
+ <button class="menu" onclick="toggleSide()">☰ Menu</button>
+</header>
+
+<div class="layout">
+<aside class="side" id="side">
+ <div class="navtitle">Utama</div><div class="nav">
+  <button class="active" onclick="page('dashboard',this)">▦ Dashboard</button>
+  <button onclick="page('cases',this)">⚖ Daftar Perkara</button>
+  <button onclick="page('agenda',this)">◷ Agenda & Sidang</button>
+  <button onclick="page('docs',this)">▤ Dokumen</button>
+  <button onclick="page('letters',this)">✉ Arsip Surat-Menyurat</button>
+  <button onclick="page('history',this)">↺ Riwayat</button>
+ </div>
+<div class="navtitle">Sistem</div><div class="nav"><button onclick="page('settings',this)">⚙ Pengaturan</button></div>
+</aside>
+
+<main class="main">
+<section id="dashboard" class="page active">
+ <div class="head"><div><h1>Dashboard</h1><p>Pusat pemantauan penanganan perkara Sunar Law Office.</p></div><button class="btn primary" onclick="addCase()">+ Perkara Baru</button></div>
+ <div class="grid stats">
+  <div class="card"><div class="statlabel">Total Perkara</div><div class="statnum" id="stTotal">0</div></div>
+  <div class="card"><div class="statlabel">Berjalan</div><div class="statnum" id="stRun">0</div></div>
+  <div class="card"><div class="statlabel">Selesai</div><div class="statnum" id="stDone">0</div></div>
+  <div class="card"><div class="statlabel">Agenda</div><div class="statnum" id="stAgenda">0</div></div>
+  <div class="card"><div class="statlabel">Dokumen</div><div class="statnum" id="stDocs">0</div></div><div class="card"><div class="statlabel">Surat</div><div class="statnum" id="stLetters">0</div></div>
+ </div>
+ <div class="grid two"><div class="card"><h3>Perkara Terbaru</h3><div class="tablewrap"><table class="data"><thead><tr><th>Nomor</th><th>Klien</th><th>Jenis</th><th>Status</th></tr></thead><tbody id="dashCases"></tbody></table></div></div><div class="card"><h3>Agenda</h3><div id="dashAgenda"></div></div></div>
+</section>
+
+<section id="cases" class="page">
+ <div class="head"><div><h1>Daftar Perkara</h1><p>Registrasi dan pemantauan perkara.</p></div><button class="btn primary" onclick="addCase()">+ Tambah Perkara</button></div>
+ <div class="card"><div class="search"><input id="caseSearch" placeholder="Cari nomor, klien, pengadilan, jenis..." oninput="renderCases()"></div><div class="tablewrap"><table class="data"><thead><tr><th>No</th><th>Nomor Perkara</th><th>Klien</th><th>Jenis</th><th>Pengadilan/Instansi</th><th>Tahap</th><th>Status</th><th>Detail</th></tr></thead><tbody id="caseTable"></tbody></table></div></div>
+</section>
+
+<section id="detail" class="page">
+ <div class="head"><div><button class="btn light" onclick="page('cases',document.querySelectorAll('.nav button')[1])">← Kembali</button><h1 id="detailTitle" style="margin-top:9px">Detail Perkara</h1><p id="detailSub"></p></div><button class="btn gold" onclick="window.print()">Cetak Detail</button></div>
+ <div class="detailtabs">
+  <button class="dtab active" onclick="tab('info',this)">Informasi Perkara</button>
+  <button class="dtab" onclick="tab('parties',this)">Para Pihak</button>
+  <button class="dtab" onclick="tab('dagenda',this)">Tahapan & Agenda</button>
+  <button class="dtab" onclick="tab('dhistory',this)">Riwayat</button>
+  <button class="dtab" onclick="tab('ddocs',this)">Dokumen</button>
+ </div>
+ <div id="info" class="dcontent active card"><h3>Informasi Perkara</h3><div id="detailInfo"></div></div>
+ <div id="parties" class="dcontent card"><div class="sectionhead"><h3>Para Pihak</h3><button class="btn primary" onclick="addParty()">+ Tambah Pihak</button></div><div id="detailParties" class="parties"></div></div>
+ <div id="dagenda" class="dcontent card"><div class="sectionhead"><h3>Tahapan & Agenda</h3><button class="btn primary" onclick="addAgendaForCurrent()">+ Tambah Agenda</button></div><div class="tablewrap"><table class="data"><thead><tr><th>Tanggal</th><th>Waktu</th><th>Agenda</th><th>Lokasi</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="detailAgenda"></tbody></table></div></div>
+ <div id="dhistory" class="dcontent card"><div class="sectionhead"><h3>Riwayat Penanganan</h3><button class="btn primary" onclick="addHistoryForCurrent()">+ Tambah Riwayat</button></div><div id="detailHistory" class="timeline"></div></div>
+ <div id="ddocs" class="dcontent card"><div class="sectionhead"><h3>Dokumen & Lampiran</h3><button class="btn primary" onclick="addDocForCurrent()">+ Tambah Dokumen</button></div><div class="notice">Lampiran sampai 1,5 MB dapat disimpan sebagai Data URL di browser. Untuk file perkara yang lebih besar, gunakan Google Drive/Storage dan isi link-nya. GitHub Pages tidak menyediakan database upload privat.</div><div class="tablewrap"><table class="data"><thead><tr><th>Dokumen</th><th>Kategori</th><th>Tanggal</th><th>Lampiran / Link</th><th>Aksi</th></tr></thead><tbody id="detailDocs"></tbody></table></div></div>
+</section>
+
+<section id="agenda" class="page">
+ <div class="head"><div><h1>Agenda & Sidang</h1><p>Seluruh jadwal penanganan perkara.</p></div><button class="btn primary" onclick="addAgenda()">+ Agenda</button></div>
+ <div class="card"><div class="search"><input id="agendaSearch" placeholder="Cari agenda..." oninput="renderAgenda()"></div><div class="tablewrap"><table class="data"><thead><tr><th>Tanggal</th><th>Waktu</th><th>Perkara</th><th>Agenda</th><th>Lokasi</th><th>Status</th></tr></thead><tbody id="agendaTable"></tbody></table></div></div>
+</section>
+
+<section id="docs" class="page">
+ <div class="head"><div><h1>Dokumen Perkara</h1><p>Indeks dokumen dan lampiran.</p></div><button class="btn primary" onclick="addDoc()">+ Tambah Dokumen</button></div>
+ <div class="card"><div class="search"><input id="docSearch" placeholder="Cari dokumen, nomor perkara, kategori..." oninput="renderDocs()"></div><div class="tablewrap"><table class="data"><thead><tr><th>Dokumen</th><th>Nomor Perkara</th><th>Kategori</th><th>Tanggal</th><th>Lampiran/Link</th><th>Aksi</th></tr></thead><tbody id="docTable"></tbody></table></div></div>
+</section>
+
+
+<section id="letters" class="page">
+ <div class="head">
+  <div><h1>Arsip Surat-Menyurat</h1><p>Registrasi, pencarian, pengelolaan dan lampiran surat kantor.</p></div>
+  <button class="btn primary" onclick="addLetter()">+ Tambah Surat</button>
+ </div>
+ <div class="card">
+  <div class="search">
+   <input id="letterSearch" placeholder="Cari nomor surat, perkara, kepada siapa, atau perihal..." oninput="renderLetters()">
+  </div>
+  <div class="tablewrap">
+   <table class="data">
+    <thead><tr>
+     <th>No.</th><th>Nomor Surat</th><th>Tanggal</th><th>Perkara</th><th>Kepada</th><th>Perihal</th><th>Lampiran</th><th>Aksi</th>
+    </tr></thead>
+    <tbody id="letterTable"></tbody>
+   </table>
+  </div>
+ </div>
+</section>
+<section id="history" class="page">
+ <div class="head"><div><h1>Riwayat Penanganan</h1><p>Catatan kegiatan seluruh perkara.</p></div><button class="btn primary" onclick="addHistory()">+ Tambah Riwayat</button></div>
+ <div class="card"><div class="tablewrap"><table class="data"><thead><tr><th>Tanggal</th><th>Perkara</th><th>Kegiatan</th><th>Petugas</th><th>Catatan</th><th>Aksi</th></tr></thead><tbody id="historyTable"></tbody></table></div></div>
+</section>
+
+
+
+
+
+<section id="settings" class="page">
+ <div class="head"><div><h1>Pengaturan</h1><p>Informasi penyimpanan aplikasi.</p></div></div>
+ <div class="card"><div class="notice">Data aplikasi versi GitHub Pages ini tersimpan di localStorage browser. Jika cache/browser dihapus atau berpindah perangkat, data lokal tidak otomatis ikut berpindah. Untuk sistem kantor multi-user diperlukan database/backend.</div><button class="btn danger" onclick="resetDB()">Reset data demo</button></div>
+</section>
+<div class="footer">© 2026 Sunar Law Office · Case Management Center · GitHub Pages</div>
+</main>
+</div>
+
+<div id="modal" class="modal"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle">Form</h2><button class="close" onclick="closeModal()">×</button></div><div id="modalBody"></div></div></div>
+
+<script>
+const KEY='sunarLawCaseCenter_v2';
+let db=JSON.parse(localStorage.getItem(KEY)||'null')||{
+ cases:[
+  {no:'001/SL/2026',registerDate:'2026-09-20',client:'Harie Baskoro, S.E., MBA',type:'Perdata / PMH',court:'PN Semarang',stage:'Pemeriksaan',status:'Berjalan',lawyer:'Sunar Law Office',note:'Perkara contoh'}
+ ],
+ agenda:[{date:'2026-10-02',time:'09:00',caseNo:'001/SL/2026',title:'Sidang Pemeriksaan',place:'PN Semarang',status:'Terjadwal'}],
+ docs:[{name:'Surat Kuasa',caseNo:'001/SL/2026',cat:'Surat',date:'2026-09-20',url:'#',attachmentName:'',attachmentSize:0,attachmentData:''}],
+ history:[{date:'2026-09-25',caseNo:'001/SL/2026',action:'Pemeriksaan dokumen',staff:'Advokat',note:'Persiapan agenda sidang.'}],
+ clients:[{name:'Harie Baskoro, S.E., MBA',role:'Klien / Pihak Utama',phone:'',email:'',caseNo:'001/SL/2026',note:'Klien perkara perdata'}],
+ letters:[{no:'001/SLO/IX/2026',date:'2026-09-25',caseNo:'001/SL/2026',to:'Pengadilan Negeri Semarang',subject:'Surat Permohonan',attachmentName:'',attachmentSize:0,attachmentData:''}]
+};
+let currentCase='';
+if(!Array.isArray(db.letters))db.letters=[];
+
+function esc(v=''){return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function save(){localStorage.setItem(KEY,JSON.stringify(db));refresh()}
+function toggleSide(){document.getElementById('side').classList.toggle('open')}
+function page(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('side').classList.remove('open');refresh()}
+function tab(id,btn){document.querySelectorAll('.dcontent').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.dtab').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');if(btn)btn.classList.add('active')}
+function openModal(){document.getElementById('modal').classList.add('open')}function closeModal(){document.getElementById('modal').classList.remove('open')}
+function modal(title,body){document.getElementById('modalTitle').textContent=title;document.getElementById('modalBody').innerHTML=body;openModal()}
+function fmt(n){if(!n)return'0 B';const u=['B','KB','MB','GB','TB'],i=Math.min(Math.floor(Math.log(n)/Math.log(1024)),u.length-1);return`${(n/1024**i).toFixed(i?1:0)} ${u[i]}`}
+function readFile(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(file)})}
+function fileInfo(input,target){const f=input.files?.[0],e=document.getElementById(target);if(f)e.textContent=`${f.name} · ${fmt(f.size)} · ${f.type||'tipe tidak diketahui'}`}
+function addCase(){modal('Tambah Perkara',`<form onsubmit="saveCase(event)"><div class="formgrid">
+<div class="field"><label>Nomor Perkara</label><input name="no" required placeholder="001/SL/2026"></div><div class="field"><label>Tanggal Register</label><input type="date" name="registerDate"></div>
+<div class="field"><label>Klien / Pihak Utama</label><input name="client" required></div><div class="field"><label>Jenis Perkara</label><select name="type"><option>Perdata</option><option>Pidana</option><option>Perdata / PMH</option><option>Non-Litigasi</option><option>Administratif</option></select></div>
+<div class="field"><label>Pengadilan / Instansi</label><input name="court"></div><div class="field"><label>Tahap</label><input name="stage" value="Pendaftaran"></div>
+<div class="field"><label>Status</label><select name="status"><option>Berjalan</option><option>Menunggu</option><option>Selesai</option><option>Ditutup</option></select></div><div class="field"><label>Advokat / Penanggung Jawab</label><input name="lawyer" value="Sunar Law Office"></div>
+<div class="field full"><label>Catatan</label><textarea name="note"></textarea></div></div><br><button class="btn primary">Simpan Perkara</button></form>`)}
+function saveCase(e){e.preventDefault();db.cases.unshift(Object.fromEntries(new FormData(e.target)));save();closeModal();page('cases',document.querySelectorAll('.nav button')[1])}
+function renderCases(){const q=(document.getElementById('caseSearch')?.value||'').toLowerCase();const a=db.cases.filter(x=>Object.values(x).join(' ').toLowerCase().includes(q));document.getElementById('caseTable').innerHTML=a.map((x,i)=>`<tr><td>${i+1}</td><td><b>${esc(x.no)}</b><small style="display:block;color:#718096">${esc(x.registerDate||'')}</small></td><td>${esc(x.client)}</td><td>${esc(x.type)}</td><td>${esc(x.court)}</td><td>${esc(x.stage)}</td><td><span class="badge ${x.status==='Selesai'?'green':'blue'}">${esc(x.status)}</span></td><td><button class="btn light" onclick="openCase('${encodeURIComponent(x.no)}')">Detail</button></td></tr>`).join('')||'<tr><td colspan="8">Tidak ada data.</td></tr>'}
+function openCase(no){if(!no){return addCase()}currentCase=decodeURIComponent(no);const c=db.cases.find(x=>x.no===currentCase);if(!c)return;page('detail');document.getElementById('detailTitle').textContent=c.no;document.getElementById('detailSub').textContent=`${c.type} · ${c.court||'Instansi belum diisi'}`;renderDetail();setTimeout(()=>tab('info',document.querySelector('.dtab')),0)}
+function renderDetail(){const c=db.cases.find(x=>x.no===currentCase);if(!c)return;
+document.getElementById('detailInfo').innerHTML=`<div class="detailgrid"><div><span>Nomor Perkara</span><b>${esc(c.no)}</b></div><div><span>Tanggal Register</span><b>${esc(c.registerDate||'-')}</b></div><div><span>Klien / Pihak Utama</span><b>${esc(c.client)}</b></div><div><span>Jenis Perkara</span><b>${esc(c.type)}</b></div><div><span>Pengadilan / Instansi</span><b>${esc(c.court||'-')}</b></div><div><span>Tahap</span><b>${esc(c.stage)}</b></div><div><span>Status</span><b><span class="badge ${c.status==='Selesai'?'green':'blue'}">${esc(c.status)}</span></b></div><div><span>Advokat</span><b>${esc(c.lawyer||'-')}</b></div><div style="grid-column:1/-1"><span>Catatan</span><b>${esc(c.note||'-')}</b></div></div>`;
+const ps=db.clients.filter(x=>x.caseNo===currentCase);document.getElementById('detailParties').innerHTML=`<div class="party"><span>Pihak Utama</span><b>${esc(c.client)}</b><small>${esc(c.lawyer||'Sunar Law Office')}</small><button class="btn light" onclick="editMainParty()">Edit</button></div>`+ps.map((x)=>{let i=db.clients.indexOf(x);return`<div class="party"><span>${esc(x.role||'Pihak Terkait')}</span><b>${esc(x.name)}</b><small>${esc(x.phone||'')} ${esc(x.note||'')}</small><button class="btn light" onclick="editParty(${i})">Edit</button> <button class="btn danger" onclick="delParty(${i})">Hapus</button></div>`}).join('');
+const ag=db.agenda.filter(x=>x.caseNo===currentCase).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));document.getElementById('detailAgenda').innerHTML=ag.map(x=>{let i=db.agenda.indexOf(x);return`<tr><td>${esc(x.date)}</td><td>${esc(x.time)}</td><td><b>${esc(x.title)}</b></td><td>${esc(x.place)}</td><td><span class="badge blue">${esc(x.status)}</span></td><td><button class="btn light" onclick="editAgenda(${i})">Edit</button> <button class="btn danger" onclick="delAgenda(${i})">Hapus</button></td></tr>`}).join('')||'<tr><td colspan="6">Belum ada agenda.</td></tr>';
+const hs=db.history.filter(x=>x.caseNo===currentCase).sort((a,b)=>b.date.localeCompare(a.date));document.getElementById('detailHistory').innerHTML=hs.map(x=>{let i=db.history.indexOf(x);return`<div class="event"><strong>${esc(x.action)}</strong><span>${esc(x.date)} · ${esc(x.staff||'')}</span><p>${esc(x.note||'')}</p><button class="btn light" onclick="editHistory(${i})">Edit</button> <button class="btn danger" onclick="delHistory(${i})">Hapus</button></div>`}).join('')||'<p>Belum ada riwayat.</p>';
+const ds=db.docs.filter(x=>x.caseNo===currentCase);document.getElementById('detailDocs').innerHTML=ds.map(x=>docRow(x)).join('')||'<tr><td colspan="5">Belum ada dokumen.</td></tr>';
+}
+function docRow(x){let i=db.docs.indexOf(x);let attachment=x.attachmentData?`<a href="${x.attachmentData}" download="${esc(x.attachmentName||'lampiran')}">Buka/Download</a>`:'';let link=x.url&&x.url!=='#'?`<a href="${esc(x.url)}" target="_blank" rel="noopener">Google Drive/Storage</a>`:'';return`<tr><td><b>${esc(x.name)}</b>${x.attachmentName?`<small class="attach">📎 ${esc(x.attachmentName)} · ${fmt(x.attachmentSize||0)}</small>`:''}</td><td>${esc(x.cat||'-')}</td><td>${esc(x.date||'-')}</td><td>${attachment}${attachment&&link?' · ':''}${link}${!attachment&&!link?'Belum ada lampiran/link':''}${x.attachmentNote?`<small class="attach">${esc(x.attachmentNote)}</small>`:''}</td><td><button class="btn light" onclick="editDoc(${i})">Edit</button> <button class="btn danger" onclick="delDoc(${i})">Hapus</button></td></tr>`}
+function addParty(){modal('Tambah Pihak',`<form onsubmit="saveParty(event)"><div class="formgrid"><div class="field"><label>Nama Pihak</label><input name="name" required></div><div class="field"><label>Peran</label><select name="role"><option>Penggugat</option><option>Tergugat</option><option>Pemohon</option><option>Termohon</option><option>Saksi</option><option>Pihak Terkait</option></select></div><div class="field"><label>Telepon / WhatsApp</label><input name="phone"></div><div class="field"><label>Email</label><input name="email"></div><div class="field full"><label>Catatan</label><textarea name="note"></textarea></div></div><br><button class="btn primary">Simpan</button></form>`)}
+function saveParty(e){e.preventDefault();let x=Object.fromEntries(new FormData(e.target));x.caseNo=currentCase;db.clients.push(x);save();closeModal();renderDetail()}
+function editMainParty(){let c=db.cases.find(x=>x.no===currentCase);modal('Edit Pihak Utama',`<form onsubmit="saveMainParty(event)"><div class="formgrid"><div class="field full"><label>Nama</label><input name="client" value="${esc(c.client)}" required></div><div class="field"><label>Advokat</label><input name="lawyer" value="${esc(c.lawyer||'')}"></div><div class="field"><label>Catatan</label><input name="note" value="${esc(c.note||'')}"></div></div><br><button class="btn primary">Simpan</button></form>`)}
+function saveMainParty(e){e.preventDefault();let f=new FormData(e.target),c=db.cases.find(x=>x.no===currentCase);c.client=f.get('client');c.lawyer=f.get('lawyer');c.note=f.get('note');save();closeModal();renderDetail()}
+function editParty(i){let x=db.clients[i];modal('Edit Pihak',`<form onsubmit="savePartyEdit(event,${i})"><div class="formgrid"><div class="field"><label>Nama</label><input name="name" value="${esc(x.name)}" required></div><div class="field"><label>Peran</label><input name="role" value="${esc(x.role||'')}"></div><div class="field"><label>Telepon</label><input name="phone" value="${esc(x.phone||'')}"></div><div class="field"><label>Email</label><input name="email" value="${esc(x.email||'')}"></div><div class="field full"><label>Catatan</label><textarea name="note">${esc(x.note||'')}</textarea></div></div><br><button class="btn primary">Simpan</button></form>`)}
+function savePartyEdit(e,i){e.preventDefault();Object.assign(db.clients[i],Object.fromEntries(new FormData(e.target)));save();closeModal();renderDetail()}
+function delParty(i){if(confirm('Hapus pihak?')){db.clients.splice(i,1);save();renderDetail()}}
+function agendaForm(title,x,i){x=x||{date:'',time:'',title:'',place:'',status:'Terjadwal'};modal(title,`<form onsubmit="${i===undefined?'saveNewAgenda(event)':'saveAgendaEdit(event,'+i+')'}"><div class="formgrid"><div class="field"><label>Tanggal</label><input type="date" name="date" value="${esc(x.date)}" required></div><div class="field"><label>Waktu</label><input type="time" name="time" value="${esc(x.time)}"></div><div class="field full"><label>Agenda</label><input name="title" value="${esc(x.title)}" required></div><div class="field"><label>Lokasi</label><input name="place" value="${esc(x.place)}"></div><div class="field"><label>Status</label><select name="status"><option ${x.status==='Terjadwal'?'selected':''}>Terjadwal</option><option ${x.status==='Selesai'?'selected':''}>Selesai</option><option ${x.status==='Ditunda'?'selected':''}>Ditunda</option></select></div></div><br><button class="btn primary">Simpan</button></form>`)}
+function addAgenda(){agendaForm('Tambah Agenda')}function addAgendaForCurrent(){agendaForm('Tambah Agenda Perkara')}function saveNewAgenda(e){e.preventDefault();let x=Object.fromEntries(new FormData(e.target));x.caseNo=currentCase;db.agenda.push(x);save();closeModal();renderDetail()}function editAgenda(i){agendaForm('Edit Agenda',db.agenda[i],i)}function saveAgendaEdit(e,i){e.preventDefault();Object.assign(db.agenda[i],Object.fromEntries(new FormData(e.target)));save();closeModal();renderDetail()}function delAgenda(i){if(confirm('Hapus agenda?')){db.agenda.splice(i,1);save();renderDetail()}}
+function historyForm(title,x,i){x=x||{date:'',staff:'',action:'',note:''};modal(title,`<form onsubmit="${i===undefined?'saveNewHistory(event)':'saveHistoryEdit(event,'+i+')'}"><div class="formgrid"><div class="field"><label>Tanggal</label><input type="date" name="date" value="${esc(x.date)}" required></div><div class="field"><label>Petugas</label><input name="staff" value="${esc(x.staff||'')}"></div><div class="field full"><label>Kegiatan / Tindakan</label><input name="action" value="${esc(x.action)}" required></div><div class="field full"><label>Catatan</label><textarea name="note">${esc(x.note||'')}</textarea></div></div><br><button class="btn primary">Simpan</button></form>`)}
+function addHistory(){historyForm('Tambah Riwayat')}function addHistoryForCurrent(){historyForm('Tambah Riwayat Perkara')}function saveNewHistory(e){e.preventDefault();let x=Object.fromEntries(new FormData(e.target));x.caseNo=currentCase;db.history.push(x);save();closeModal();renderDetail()}function editHistory(i){historyForm('Edit Riwayat',db.history[i],i)}function saveHistoryEdit(e,i){e.preventDefault();Object.assign(db.history[i],Object.fromEntries(new FormData(e.target)));save();closeModal();renderDetail()}function delHistory(i){if(confirm('Hapus riwayat?')){db.history.splice(i,1);save();renderDetail()}}
+function docForm(title,x,i){x=x||{name:'',cat:'',date:'',url:'',attachmentName:'',attachmentSize:0};modal(title,`<form onsubmit="${i===undefined?'saveNewDoc(event)':'saveDocEdit(event,'+i+')'}"><div class="formgrid">
+<div class="field full"><label>Nama Dokumen</label><input name="name" value="${esc(x.name)}" required></div>
+<div class="field"><label>Kategori</label><input name="cat" value="${esc(x.cat||'')}" placeholder="Surat / Bukti / Putusan"></div>
+<div class="field"><label>Tanggal Dokumen</label><input type="date" name="date" value="${esc(x.date||'')}"></div>
+<div class="field full"><label>Link Google Drive / Storage</label><input name="url" value="${esc(x.url||'')}" placeholder="https://drive.google.com/..."></div>
+<div class="field full filebox"><label>Lampirkan File dari HP/Komputer</label><input id="uploadFile" type="file" onchange="fileInfo(this,'uploadInfo')"><div id="uploadInfo" class="filemeta">${x.attachmentName?`Lampiran saat ini: ${esc(x.attachmentName)} · ${fmt(x.attachmentSize||0)}`:'Belum ada file dipilih.'}</div><div class="hint">File ≤ 1,5 MB dapat disimpan lokal di browser. File lebih besar tetap gunakan Google Drive/Storage.</div></div>
+</div><br><button class="btn primary">Simpan Dokumen</button></form>`)}
+function addDoc(){docForm('Tambah Dokumen')}function addDocForCurrent(){docForm('Tambah Dokumen Perkara')}
+async function saveNewDoc(e){e.preventDefault();let x=Object.fromEntries(new FormData(e.target));x.caseNo=currentCase;await attachFromInput(x);db.docs.push(x);save();closeModal();renderDetail()}
+async function saveDocEdit(e,i){e.preventDefault();Object.assign(db.docs[i],Object.fromEntries(new FormData(e.target)));await attachFromInput(db.docs[i]);save();closeModal();renderDetail()}
+async function attachFromInput(x){const f=document.getElementById('uploadFile')?.files?.[0];if(!f)return;x.attachmentName=f.name;x.attachmentSize=f.size;x.attachmentType=f.type||'';if(f.size<=1500000){x.attachmentData=await readFile(f);x.attachmentNote=''}else{x.attachmentData='';x.attachmentNote='File lebih dari 1,5 MB. Gunakan link Google Drive/Storage.'}}
+function editDoc(i){docForm('Edit Dokumen',db.docs[i],i)}function delDoc(i){if(confirm('Hapus dokumen dan indeks lampirannya?')){db.docs.splice(i,1);save();renderDetail();renderDocs()}}
+function renderAgenda(){const q=(document.getElementById('agendaSearch')?.value||'').toLowerCase();let a=db.agenda.filter(x=>Object.values(x).join(' ').toLowerCase().includes(q)).sort((x,y)=>(x.date+x.time).localeCompare(y.date+y.time));document.getElementById('agendaTable').innerHTML=a.map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.time)}</td><td>${esc(x.caseNo)}</td><td><b>${esc(x.title)}</b></td><td>${esc(x.place)}</td><td><span class="badge blue">${esc(x.status)}</span></td></tr>`).join('')||'<tr><td colspan="6">Tidak ada agenda.</td></tr>'}
+function renderDocs(){const q=(document.getElementById('docSearch')?.value||'').toLowerCase();let a=db.docs.filter(x=>Object.values(x).join(' ').toLowerCase().includes(q));document.getElementById('docTable').innerHTML=a.map(x=>docRow(x)).join('')||'<tr><td colspan="6">Tidak ada dokumen.</td></tr>'}
+function addClient(){modal('Tambah Klien',`<form onsubmit="saveClient(event)"><div class="formgrid"><div class="field"><label>Nama</label><input name="name" required></div><div class="field"><label>Peran</label><input name="role" value="Klien / Pihak Utama"></div><div class="field"><label>Telepon</label><input name="phone"></div><div class="field"><label>Nomor Perkara</label><input name="caseNo" value="${esc(currentCase)}"></div><div class="field full"><label>Catatan</label><textarea name="note"></textarea></div></div><br><button class="btn primary">Simpan</button></form>`)}
+function saveClient(e){e.preventDefault();db.clients.push(Object.fromEntries(new FormData(e.target)));save();closeModal()}
+function renderClients(){document.getElementById('clientTable').innerHTML=db.clients.map(x=>`<tr><td><b>${esc(x.name)}</b></td><td>${esc(x.role||'')}</td><td>${esc(x.phone||'')}</td><td>${esc(x.caseNo||'')}</td><td>${esc(x.note||'')}</td></tr>`).join('')}
+function renderHistory(){document.getElementById('historyTable').innerHTML=db.history.map(x=>{let i=db.history.indexOf(x);return`<tr><td>${esc(x.date)}</td><td>${esc(x.caseNo)}</td><td>${esc(x.action)}</td><td>${esc(x.staff||'')}</td><td>${esc(x.note||'')}</td><td><button class="btn light" onclick="editHistory(${i})">Edit</button> <button class="btn danger" onclick="delHistory(${i})">Hapus</button></td></tr>`}).join('')}
+
+function addLetter(){letterForm('Tambah Surat')}
+function letterForm(title,x,i){
+ x=x||{no:'',date:'',caseNo:currentCase,to:'',subject:'',attachmentName:'',attachmentSize:0};
+ const action=i===undefined?'saveNewLetter(event)':'saveLetterEdit(event,'+i+')';
+ modal(title,`<form onsubmit="${action}">
+ <div class="formgrid">
+  <div class="field"><label>Nomor Surat</label><input name="no" value="${esc(x.no)}" required placeholder="001/SLO/IX/2026"></div>
+  <div class="field"><label>Tanggal Surat</label><input type="date" name="date" value="${esc(x.date||'')}" required></div>
+  <div class="field"><label>Perkara</label><select name="caseNo"><option value="">-- Pilih Perkara --</option>${db.cases.map(c=>`<option value="${esc(c.no)}" ${x.caseNo===c.no?'selected':''}>${esc(c.no)} — ${esc(c.client)}</option>`).join('')}</select></div>
+  <div class="field"><label>Kepada Siapa</label><input name="to" value="${esc(x.to||'')}" required placeholder="Nama/instansi penerima"></div>
+  <div class="field full"><label>Perihal</label><input name="subject" value="${esc(x.subject||'')}" required placeholder="Perihal surat"></div>
+  <div class="field full filebox"><label>Lampiran File Surat</label><input id="letterFile" type="file" onchange="fileInfo(this,'letterFileInfo')"><div id="letterFileInfo" class="filemeta">${x.attachmentName?`Lampiran saat ini: ${esc(x.attachmentName)} · ${fmt(x.attachmentSize||0)}`:'Belum ada file dipilih.'}</div><div class="hint">File sampai 1,5 MB dapat disimpan lokal. Untuk surat lebih besar, gunakan Google Drive/Storage.</div></div>
+ </div><br><button class="btn primary">Simpan Surat</button></form>`)
+}
+async function saveNewLetter(e){e.preventDefault();let x=Object.fromEntries(new FormData(e.target));await attachLetter(x);db.letters.unshift(x);save();closeModal();renderLetters()}
+async function saveLetterEdit(e,i){e.preventDefault();Object.assign(db.letters[i],Object.fromEntries(new FormData(e.target)));await attachLetter(db.letters[i]);save();closeModal();renderLetters()}
+async function attachLetter(x){
+ const f=document.getElementById('letterFile')?.files?.[0];if(!f)return;
+ x.attachmentName=f.name;x.attachmentSize=f.size;x.attachmentType=f.type||'';
+ if(f.size<=1500000){x.attachmentData=await readFile(f);x.attachmentNote=''}
+ else{x.attachmentData='';x.attachmentNote='File lebih dari 1,5 MB. Gunakan Google Drive/Storage.'}
+}
+function renderLetters(){
+ const q=(document.getElementById('letterSearch')?.value||'').toLowerCase();
+ const arr=db.letters.filter(x=>Object.values(x).join(' ').toLowerCase().includes(q));
+ const el=document.getElementById('letterTable');if(!el)return;
+ el.innerHTML=arr.map(x=>{const i=db.letters.indexOf(x);
+  const att=x.attachmentData?`<a href="${x.attachmentData}" download="${esc(x.attachmentName||'surat')}">Buka/Download</a>`:'Belum ada';
+  return `<tr><td>${i+1}</td><td><b>${esc(x.no)}</b></td><td>${esc(x.date||'-')}</td><td>${esc(x.caseNo||'')}</td><td>${esc(x.to)}</td><td>${esc(x.subject)}</td><td>${att}${x.attachmentName?`<small class="attach">📎 ${esc(x.attachmentName)} · ${fmt(x.attachmentSize||0)}</small>`:''}${x.attachmentNote?`<small class="attach">${esc(x.attachmentNote)}</small>`:''}</td><td><button class="btn light" onclick="editLetter(${i})">Edit</button> <button class="btn danger" onclick="deleteLetter(${i})">Hapus</button></td></tr>`
+ }).join('')||'<tr><td colspan="8">Belum ada arsip surat.</td></tr>';
+}
+function editLetter(i){letterForm('Edit Surat',db.letters[i],i)}
+function deleteLetter(i){if(confirm('Hapus arsip surat ini beserta metadata lampirannya?')){db.letters.splice(i,1);save();renderLetters()}}
+function refresh(){document.getElementById('stTotal').textContent=db.cases.length;document.getElementById('stRun').textContent=db.cases.filter(x=>x.status==='Berjalan').length;document.getElementById('stDone').textContent=db.cases.filter(x=>x.status==='Selesai').length;document.getElementById('stAgenda').textContent=db.agenda.length;document.getElementById('stDocs').textContent=db.docs.length;document.getElementById('stLetters').textContent=db.letters.length;document.getElementById('dashCases').innerHTML=db.cases.slice(0,5).map(x=>`<tr><td>${esc(x.no)}</td><td>${esc(x.client)}</td><td>${esc(x.type)}</td><td><span class="badge blue">${esc(x.status)}</span></td></tr>`).join('');document.getElementById('dashAgenda').innerHTML=db.agenda.slice(0,5).map(x=>`<div class="event"><strong>${esc(x.title)}</strong><span>${esc(x.date)} · ${esc(x.time)} · ${esc(x.caseNo)}</span></div>`).join('');renderCases();renderAgenda();renderDocs();renderHistory();document.getElementById('letterTable')&&renderLetters()}
+function exportJSON(){let b=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='sunar-law-case-data.json';a.click();URL.revokeObjectURL(a.href)}
+function importJSON(){alert('Untuk menjaga keamanan, impor JSON dapat ditambahkan pada tahap backend. Gunakan Ekspor JSON sebagai cadangan data lokal.')}
+function resetDB(){if(confirm('Hapus seluruh data lokal aplikasi dan kembali ke data demo?')){localStorage.removeItem(KEY);location.reload()}}
+refresh();
+</script>
+</body>
+</html>
